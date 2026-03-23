@@ -5,8 +5,9 @@ import Dashboard from "@/pages/Dashboard";
 import Cameras from "@/pages/Cameras";
 import Users from "@/pages/Users";
 import Detections from "@/pages/Detections";
+import Recognize from "@/pages/Recognize";
 
-type Page = "dashboard" | "cameras" | "detections" | "users";
+type Page = "dashboard" | "cameras" | "detections" | "users" | "recognize";
 
 interface User {
   login: string;
@@ -16,7 +17,8 @@ interface User {
 const NAV_ITEMS = [
   { id: "dashboard" as Page, label: "Сводка", icon: "LayoutDashboard" },
   { id: "cameras" as Page, label: "Камеры", icon: "Video" },
-  { id: "detections" as Page, label: "Номера", icon: "ScanLine" },
+  { id: "recognize" as Page, label: "Распознать", icon: "ScanSearch" },
+  { id: "detections" as Page, label: "История", icon: "History" },
   { id: "users" as Page, label: "Пользователи", icon: "Users" },
 ];
 
@@ -126,6 +128,7 @@ export default function App() {
           <div className="animate-fade-in" key={page}>
             {page === "dashboard" && <Dashboard />}
             {page === "cameras" && <Cameras />}
+            {page === "recognize" && <Recognize />}
             {page === "detections" && <Detections />}
             {page === "users" && <Users />}
           </div>
